@@ -18,5 +18,10 @@ public class DupRunner
         out.println("Uniques :: " + test.getUniques(input).toString());
         out.println("Dupes :: " + test.getDupes(input).toString() + "\n");
 
+        input = "1 AP zero 1 AP 5";
+
+        out.println("Original List :: " + input);
+        out.println("Uniques :: " + test.getUniques(input).toString());
+        out.println("Dupes :: " + test.getDupes(input).toString() + "\n");
     }
 }

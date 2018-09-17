@@ -13,7 +13,6 @@ public class OddEvenSets
     {
         odds = new TreeSet<>();
         evens = new TreeSet<>();
-
     }
 
     public OddEvenSets(String line)
@@ -28,7 +27,6 @@ public class OddEvenSets
             else
                 odds.add(Integer.parseInt(input));
         }
-
     }
 
     public String toString()
