@@ -8,13 +8,15 @@ public class DupRunner
         String input = "A B C D E F G H I J K A E E L M N O P M H";
         UniquesDupes test = new UniquesDupes();
 
-        out.println(test.getUniques(input).toString());
-        out.println(test.getDupes(input).toString() + "\n");
+        out.println("Original List :: " + input);
+        out.println("Uniques :: " + test.getUniques(input).toString());
+        out.println("Dupes :: " + test.getDupes(input).toString() + "\n");
 
         input = "1 1 9 8 6 5 9 2 3 0 2 8 4 3 1 2";
 
-        out.println(test.getUniques(input).toString());
-        out.println(test.getDupes(input).toString());
+        out.println("Original List :: " + input);
+        out.println("Uniques :: " + test.getUniques(input).toString());
+        out.println("Dupes :: " + test.getDupes(input).toString() + "\n");
 
     }
 }
