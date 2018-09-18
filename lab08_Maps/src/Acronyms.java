@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Scanner;
@@ -11,17 +12,13 @@ public class Acronyms
 
     public Acronyms()
     {
-
-
-
+        acronymTable = new HashMap<>();
     }
 
     public void putEntry(String entry)
     {
-
-
-
-
+        acronymTable.put(entry.substring(0,entry.indexOf(" ")),
+                entry.substring(entry.indexOf(" ")) + 1);
     }
 
     public String convert(String sent)
@@ -29,13 +26,13 @@ public class Acronyms
         Scanner chop = new Scanner(sent);
         String output ="";
 
+        do{
+            if (acronymTable.containsKey(chop.next()))
+                output += acronymTable.get(chop.next());
+            else
+                output += chop.nextLine();
 
-
-
-
-
-
-
+        }while(chop.hasNext());
 
         return output;
     }
