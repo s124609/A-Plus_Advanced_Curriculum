@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/A+ Advanced Curriculum.iml" filepath="$PROJECT_DIR$/A+ Advanced Curriculum.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab07_Sets/lab07_Sets.iml" filepath="$PROJECT_DIR$/lab07_Sets/lab07_Sets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab08_Maps/lab08_Maps.iml" filepath="$PROJECT_DIR$/lab08_Maps/lab08_Maps.iml" />
     </modules>
   </component>
 </project>
