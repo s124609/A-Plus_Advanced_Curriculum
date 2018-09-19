@@ -13,6 +13,8 @@ public class AcroRunner
         for (int i = Integer.parseInt(file.nextLine()); i > 0; i--)
             test.putEntry(file.nextLine());
 
+        out.println(test);
+
         do{
             out.println(test.convert(file.nextLine()));
         }while(file.hasNextLine());

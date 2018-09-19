@@ -37,6 +37,6 @@ public class Acronyms
 
     public String toString()
     {
-        return "";
+        return acronymTable + "\n";
     }
 }
