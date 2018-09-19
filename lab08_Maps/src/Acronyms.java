@@ -17,8 +17,8 @@ public class Acronyms
 
     public void putEntry(String entry)
     {
-        acronymTable.put(entry.substring(0,entry.indexOf(" ")),
-                entry.substring(entry.indexOf(" ")) + 1);
+        acronymTable.put(entry.substring(0,entry.indexOf("-") - 1),
+                entry.substring(entry.indexOf("-") +2 ));
     }
 
     public String convert(String sent)
@@ -27,10 +27,8 @@ public class Acronyms
         String output ="";
 
         do{
-            if (acronymTable.containsKey(chop.next()))
-                output += acronymTable.get(chop.next());
-            else
-                output += chop.nextLine();
+            String next = chop.next();
+            output += acronymTable.getOrDefault(next, next) + " ";
 
         }while(chop.hasNext());
 
