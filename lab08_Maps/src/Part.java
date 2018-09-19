@@ -6,10 +6,6 @@ public class Part implements Comparable<Part>
     public Part(String line)
     {
         String[] list = line.split(" ");
-
-
-
-
     }
 
     //have to have compareTo if implements Comparable

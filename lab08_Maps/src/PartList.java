@@ -11,8 +11,7 @@ public class PartList
 
     public PartList()
     {
-
-
+        partsMap = new TreeMap<>();
     }
 
     public PartList(String fileName)
@@ -20,15 +19,13 @@ public class PartList
         this();
         try
         {
-            Scanner file = new Scanner(new File("lab08d.dat"));
+            Scanner file = new Scanner(new File("lab08_Maps/partinfo.dat"));
             //add code here to read from the file
             //and add Parts to the map
-
-
-
-
+            Part key = new Part(file.nextLine());
+            partsMap.put(key, 1);
         }
-        catch( IOException e )  //Most specific exceptions must be listed 1st
+        catch( IOException e )
         {
             out.println(e);
         }
@@ -40,10 +37,7 @@ public class PartList
         {
             out.println(e);
         }
-        finally
-        {
-            //no code needed here
-        }
+        finally {}
     }
 
     public String toString()
