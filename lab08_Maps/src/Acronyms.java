@@ -28,7 +28,14 @@ public class Acronyms
 
         do{
             String next = chop.next();
-            output += acronymTable.getOrDefault(next, next) + " ";
+
+            if (next.indexOf('.') >= 0)
+            {
+                next = next.substring(0, next.indexOf('.'));
+                output += acronymTable.getOrDefault(next, next) + ". ";
+            }
+            else
+                output += acronymTable.getOrDefault(next, next) + " ";
 
         }while(chop.hasNext());
 

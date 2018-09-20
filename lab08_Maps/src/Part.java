@@ -1,11 +1,18 @@
 public class Part implements Comparable<Part>
 {
-    private String make, mode, rest;
-    private int year;
+    private String make, mode, year, rest;
 
     public Part(String line)
     {
         String[] list = line.split(" ");
+
+        int i = 0;
+        while (!(Integer.parseInt(list[i]) > 0))
+            rest += list[i++] + " ";
+
+        make = list[i++];
+        mode = list[i++];
+        year = list[i++];
     }
 
     //have to have compareTo if implements Comparable
@@ -21,6 +28,6 @@ public class Part implements Comparable<Part>
 
     public String toString()
     {
-        return "";
+        return make + " " + mode + " " + year + " " + rest;
     }
 }

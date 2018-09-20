@@ -14,39 +14,34 @@ public class PartList
         partsMap = new TreeMap<>();
     }
 
-    public PartList(String fileName)
+    public PartList(String fileName) throws IOException
     {
-        this();
-        try
-        {
-            Scanner file = new Scanner(new File("lab08_Maps/partinfo.dat"));
-            //add code here to read from the file
-            //and add Parts to the map
-            Part key = new Part(file.nextLine());
-            partsMap.put(key, 1);
+        partsMap = new TreeMap<>();
+        try {
+            Scanner file = new Scanner(new File(fileName));
+
+            do {
+                Part key = new Part(file.nextLine());
+                if (partsMap.containsKey(key)) {
+                    partsMap.replace(key, partsMap.get(key) + 1);
+                }
+                else {
+                    partsMap.put(key, 1);
+                }
+
+            } while (file.hasNextLine());
         }
-        catch( IOException e )
-        {
-            out.println(e);
-        }
-        catch( RuntimeException e )
-        {
-            out.println(e);
-        }
-        catch( Exception e )
-        {
-            out.println(e);
-        }
-        finally {}
+
+        catch (NullPointerException e){ out.println(e); }
     }
 
     public String toString()
     {
-        String output="";
+            String output = "";
+            //for (Part temp : partsMap.keySet()) {
+               // output += temp.toString() + partsMap.get(temp) + "\n";
+           // }
 
-
-
-
-        return output;
+            return partsMap + " ";
     }
 }
