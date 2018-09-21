@@ -8,7 +8,5 @@ public class PartRunner
     {
         PartList test = new PartList("lab08_Maps/partinfo.dat");
         out.println(test);
-        //Part temp = new Part("Water Pump 19934 Ford Taurus 1999");
-        //out.println(temp);
     }
 }
