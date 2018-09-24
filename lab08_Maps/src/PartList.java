@@ -20,7 +20,7 @@ public class PartList
         partsMap = new TreeMap<>(new Comparator<Part>() {
             @Override
             public int compare(Part o1, Part o2) {
-                return o1.compareTo(o2);
+                return o2.compareTo(o1);
             }
 
         });
@@ -46,7 +46,7 @@ public class PartList
     {
             String output = "";
             for (Part temp : partsMap.keySet()) {
-                output = temp.toString() + partsMap.get(temp) + "\n" + output;
+                output += temp.toString() + partsMap.get(temp) + "\n";
             }
 
             return output;
