@@ -8,7 +8,7 @@ public class NumberRunner
     public static void main ( String[] args ) throws IOException
     {
         Scanner file = new Scanner(new File("lab11_NumSystems/number.dat"));
-        PriorityQueue<Number> list = new PriorityQueue<>(new Comparator<Number>() {
+        Set<Number> list = new TreeSet<>(new Comparator<Number>() {
             @Override
             public int compare(Number o1, Number o2) {
                 return o1.compareTo(o2);
