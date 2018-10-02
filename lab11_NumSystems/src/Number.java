@@ -27,9 +27,13 @@ public class Number implements Comparable<Number>
 
     public int compareTo(Number param)
     {
-        if (this.count - param.count == 0)
+        if (this.count - param.count == 0) {
+            if (this.binary.length() - param.binary.length() == 0)
+                return this.binary.compareTo(param.binary);
             return this.binary.length() - param.binary.length();
-        return this.count - param.count;
+        }
+        else
+            return this.count - param.count;
     }
 
     public String toString( )
