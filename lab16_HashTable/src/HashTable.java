@@ -6,29 +6,32 @@ public class HashTable
 {
     private LinkedList[] table;
 
-    public HashTable(int size)
+    public HashTable()
     {
-        table = new LinkedList[size];
+        table = new LinkedList[10];
     }
 
     public void add(Number obj)
     {
-        System.out.println("add");
         int i = obj.hashCode();
 
         if (table[i] == null)
             table[i] = new LinkedList();
-        else
-            table[i].push(obj);
+
+        table[i].push(obj);
+
     }
 
     public String toString()
     {
         String output="HASHTABLE\n";
 
-        for (int i = 0; i < table.length; i++)
+        for (int i = 0; i < table.length; i++) {
+            output += "bucket ";
             for (int x = 0; x < table[i].size(); x++)
-                output += table[i].get(x);
+                output += table[i].get(x) + " ";
+            output += "\n";
+        }
         return output;
     }
 }

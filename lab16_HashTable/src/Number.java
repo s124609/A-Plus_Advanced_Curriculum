@@ -28,6 +28,6 @@ public class Number
 
     public String toString()
     {
-        return "";
+        return "" + this.getValue();
     }
 }
