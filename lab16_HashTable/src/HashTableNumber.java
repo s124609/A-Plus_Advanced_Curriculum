@@ -2,11 +2,11 @@ import java.io.File;
 import java.util.*;
 import static java.lang.System.*;
 
-public class HashTable
+public class HashTableNumber
 {
     private LinkedList[] table;
 
-    public HashTable()
+    public HashTableNumber()
     {
         table = new LinkedList[10];
     }
@@ -24,7 +24,7 @@ public class HashTable
 
     public String toString()
     {
-        String output="HASHTABLE\n";
+        String output="HASHTABLE NUMBER\n";
 
         for (int i = 0; i < table.length; i++) {
             output += "bucket ";
