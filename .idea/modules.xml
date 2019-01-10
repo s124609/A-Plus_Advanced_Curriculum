@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab08_Maps/lab08_Maps.iml" filepath="$PROJECT_DIR$/lab08_Maps/lab08_Maps.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab11_NumSystems/lab11_NumSystems.iml" filepath="$PROJECT_DIR$/lab11_NumSystems/lab11_NumSystems.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab16_HashTable/lab16_HashTable.iml" filepath="$PROJECT_DIR$/lab16_HashTable/lab16_HashTable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab19_Graphs/lab19_Graphs.iml" filepath="$PROJECT_DIR$/lab19_Graphs/lab19_Graphs.iml" />
     </modules>
   </component>
 </project>
