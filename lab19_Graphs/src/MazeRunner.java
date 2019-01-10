@@ -8,17 +8,16 @@ public class MazeRunner
     {
         Scanner input = new Scanner(new File("lab19_Graphs/Maze.dat"));
 
-        while(input.hasNextInt()) {
+        while (input.hasNextInt()) {
             int size = input.nextInt();
             int[][] maze = new int[size][size];
             System.out.println(size);
 
-            for(int x = 0; x < size; ++x) {
-                for(int y = 0; y < size; ++y) {
+            for (int x = 0; x < size; ++x) {
+                for (int y = 0; y < size; ++y) {
                     maze[x][y] = input.nextInt();
                     System.out.print(maze[x][y] + " ");
                 }
-
                 System.out.println();
             }
 
