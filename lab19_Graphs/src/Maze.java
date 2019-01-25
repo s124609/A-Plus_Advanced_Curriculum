@@ -30,24 +30,24 @@ public class Maze
     }
 
     public String toString() {
-        String output;
+        StringBuilder output;
         if (this.checkForExitPath(0, 0)) {
-            output = "exit found\n";
+            output = new StringBuilder("exit found\n");
 
             long end_time = System.nanoTime();
             double difference = (end_time - start_time) / 1e6;
 
             System.out.println(difference + "ms");
         } else {
-            output = "exit not found\n";
+            output = new StringBuilder("exit not found\n");
         }
 
-        for (int i = 0; i < maze.length; i++) {
+        for (int[] ints : maze) {
             for (int x = 0; x < maze.length; x++)
-                output += " " + maze[i][x];
-            output += "\n";
+                output.append(" ").append(ints[x]);
+            output.append("\n");
         }
 
-        return output;
+        return output.toString();
     }
 }
