@@ -1,28 +1,26 @@
 import java.lang.*;
-import java.time.Duration;
-import java.time.Instant;
 
 public class Maze
 {
     private int[][] maze;
-    private boolean[][] pasable;
+    private int[][] passable;
     private long start_time;
 
-    Maze(boolean[][] m) {
-        this.pasable = m;
+    Maze(int[][] m) {
+        this.passable = m;
         this.maze = new int[m.length][m.length];
-        maze[9][5] = 647;
+        maze[9][5] = 5;
         start_time = System.nanoTime();
     }
 
     private boolean checkForExitPath(int r, int c) {
 
-        if (r > -1 && c > -1 && r < this.pasable.length && c < this.pasable.length
-                && maze[r][c] > -1 && this.pasable[r][c]) {
+        if (r > -1 && c > -1 && r < this.passable.length && c < this.passable.length
+                && maze[r][c] < 2 && this.passable[r][c] == 1) {
             if (maze[r][c] == 647) {
                 return true;
             } else {
-                this.maze[r][c] = -1;
+                this.maze[r][c] = 2;
                 return this.checkForExitPath(r - 1, c) || this.checkForExitPath(r, c + 1)
                         || this.checkForExitPath(r + 1, c) || this.checkForExitPath(r, c - 1);
             }
@@ -46,7 +44,7 @@ public class Maze
 
         for (int i = 0; i < maze.length; i++) {
             for (int x = 0; x < maze.length; x++)
-                output += "" + maze[i][x];
+                output += " " + maze[i][x];
             output += "\n";
         }
 
