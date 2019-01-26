@@ -130,6 +130,7 @@ public class aStar {
     private static void test(int tCase, int xy, int si, int sj, int ei, int ej, int[][] blocked){
         System.out.println("\n\nTest Case #"+tCase);
         //Reset
+        start_time = System.nanoTime();
         grid = new Cell[xy][xy];
         closed = new boolean[xy][xy];
         open = new PriorityQueue<>((Object o1, Object o2) -> {
@@ -185,8 +186,8 @@ public class aStar {
         System.out.println("\nScores for cells: ");
         for(int i=0;i<xy;++i){
             for(int j=0;j<xy;++j){
-                if(grid[i][j]!=null)System.out.printf("%-3d ", grid[i][j].finalCost);
-                else System.out.print("BL  ");
+                if(grid[i][j]!=null)System.out.printf("%-4d ", grid[i][j].finalCost);
+                else System.out.print(block + "    ");
             }
             System.out.println();
         }
@@ -210,7 +211,7 @@ public class aStar {
 
             for (Cell index : path) {
                 if (path.contains(index))
-                    maze[index.i][index.j] = "X   ";
+                    maze[index.i][index.j] = "-   ";
             }
 
             //Display final path
@@ -235,16 +236,15 @@ public class aStar {
     }
 
     public static void main(String[] args) throws Exception {
-        start_time = System.nanoTime();
 
         int[][] passable = parseBoolean();
 
-        test(1, passable.length, 0, 0, 19, 19, passable);
-        test(2, passable.length, 0, 0, 1, 16, passable);
+        test(1, passable.length, 0, 0, 59, 59, passable);
+        test(2, passable.length, 0, 0, 21, 57, passable);
     }
 
     private static int[][] parseBoolean() throws IOException {
-        Scanner input = new Scanner(new File("lab19_Graphs/test.dat"));
+        Scanner input = new Scanner(new File("lab19_Graphs/Passable.dat"));
 
         int size = input.nextInt();
 
