@@ -165,15 +165,15 @@ public class aStar {
         //Display initial map
         System.out.println("Grid: ");
         char block = '▋';
-        char open  = ' ';
+        String open  = "[]";
         for(int i=0;i<xy;++i){
             for(int j=0;j<xy;++j){
                 if(i==si&&j==sj){ System.out.print("SO  "); //Source
                     maze[i][j] = "SO  "; }
                 else if(i==ei && j==ej){ System.out.print("DE  ");  //Destination
                     maze[i][j] = "DE  "; }
-                else if(grid[i][j]!=null){ System.out.print(open + "   ");
-                    maze[i][j] = open + "   "; }
+                else if(grid[i][j]!=null){ System.out.print(open + "  ");
+                    maze[i][j] = open + "  "; }
                 else{ System.out.print(block + "   ");
                     maze[i][j] = block + "   "; }
             }
@@ -239,11 +239,12 @@ public class aStar {
 
         int[][] passable = parseBoolean();
 
-        test(1, passable.length, 0, 0, 59, 59, passable);
+        test(1, passable.length, 0, 0, 19, 19, passable);
+        test(2, passable.length, 0, 0, 1, 16, passable);
     }
 
     private static int[][] parseBoolean() throws IOException {
-        Scanner input = new Scanner(new File("lab19_Graphs/Passable.dat"));
+        Scanner input = new Scanner(new File("lab19_Graphs/test.dat"));
 
         int size = input.nextInt();
 
