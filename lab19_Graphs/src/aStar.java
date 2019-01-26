@@ -6,8 +6,6 @@ public class aStar {
     private static final int DIAGONAL_COST = 14;
     private static final int V_H_COST = 10;
 
-    private static long start_time;
-
     static class Cell{
         int heuristicCost = 0; //Heuristic cost
         int finalCost = 0; //G+H
@@ -130,7 +128,7 @@ public class aStar {
     private static void test(int tCase, int xy, int si, int sj, int ei, int ej, int[][] blocked){
         System.out.println("\n\nTest Case #"+tCase);
         //Reset
-        start_time = System.nanoTime();
+        long start_time = System.nanoTime();
         grid = new Cell[xy][xy];
         closed = new boolean[xy][xy];
         open = new PriorityQueue<>((Object o1, Object o2) -> {
@@ -242,13 +240,13 @@ public class aStar {
         //If file is Test.dat
 
         test(1, passable.length, 0, 0, 19, 19, passable);
-        test(2, passable.length, 0, 0, 1, 17, passable);
+        test(2, passable.length, 19, 2, 1, 17, passable);
 
 
         //If file is passable.dat
         /*
         test(1, passable.length, 0, 0, 59, 59, passable);
-        test(2, passable.length, 0, 0, 21, 57, passable);
+        test(2, passable.length, 56, 1, 21, 57, passable);
         */
     }
 
