@@ -138,7 +138,7 @@ public class aStar {
             return Integer.compare(c1.finalCost, c2.finalCost);
         });
         //Set start position
-        setStartCell(si, sj);  //Setting to 0,0 by default. Will be useful for the UI part
+        setStartCell(si, sj);  //Setting to 0,0 by default
 
         //Set End Location
         setEndCell(ei, ej);
@@ -238,21 +238,21 @@ public class aStar {
         int[][] passable = parseBoolean();
 
         //If file is Test.dat
-
+        /*
         test(1, passable.length, 0, 0, 19, 19, passable);
         test(2, passable.length, 19, 2, 1, 17, passable);
-
+        */
 
         //If file is passable.dat
-        /*
+
         test(1, passable.length, 0, 0, 59, 59, passable);
         test(2, passable.length, 56, 1, 21, 57, passable);
-        */
+
     }
 
     private static int[][] parseBoolean() throws IOException {
-        Scanner input = new Scanner(new File("lab19_Graphs/Test.dat"));
-        //Scanner input = new Scanner(new File("lab19_Graphs/passable.dat"));
+        //Scanner input = new Scanner(new File("lab19_Graphs/Test.dat"));
+        Scanner input = new Scanner(new File("lab19_Graphs/passable.dat"));
 
         int size = input.nextInt();
 
