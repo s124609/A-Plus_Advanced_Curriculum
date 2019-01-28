@@ -242,7 +242,6 @@ public class aStar {
         test(passable.length, 0, 0, 19, 19, passable);
         test(passable.length, 19, 2, 1, 17, passable);
 
-
         //passable.dat
         passable = parseBoolean("lab19_Graphs/passable.dat");
         test(passable.length, 0, 0, 59, 59, passable);
