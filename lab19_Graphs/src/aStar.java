@@ -5,6 +5,7 @@ import java.util.*;
 public class aStar {
     private static final int DIAGONAL_COST = 14;
     private static final int V_H_COST = 10;
+    private static int tCase = 1;
 
     static class Cell{
         int heuristicCost = 0; //Heuristic cost
@@ -28,7 +29,7 @@ public class aStar {
 
     private static PriorityQueue<Cell> open;
 
-    private static boolean closed[][];
+    private static boolean[][] closed;
     private static int startI, startJ;
     private static int endI, endJ;
 
@@ -125,8 +126,8 @@ public class aStar {
     ei, ej = end location's x and y coordinates
     int[][] blocked = array containing inaccessible cell coordinates
     */
-    private static void test(int tCase, int xy, int si, int sj, int ei, int ej, int[][] blocked){
-        System.out.println("\n\nTest Case #"+tCase);
+    private static void test(int xy, int si, int sj, int ei, int ej, int[][] blocked){
+        System.out.println("\n\nTest Case #"+tCase);tCase++;
         //Reset
         long start_time = System.nanoTime();
         grid = new Cell[xy][xy];
@@ -214,6 +215,8 @@ public class aStar {
 
             //Display final path
             System.out.println("Final Path: ");
+            System.out.println(path.toString() + "\n");
+
             for(int i=0;i<xy;++i) {
                 for (int j = 0; j < xy; ++j) {
                     if(i==si&&j==sj)System.out.print("SO  "); //Source
@@ -234,25 +237,22 @@ public class aStar {
     }
 
     public static void main(String[] args) throws Exception {
+        //Test.dat
+        int[][] passable = parseBoolean("lab19_Graphs/Test.dat");
+        test(passable.length, 0, 0, 19, 19, passable);
+        test(passable.length, 19, 2, 1, 17, passable);
 
-        int[][] passable = parseBoolean();
 
-        //If file is Test.dat
-        /*
-        test(1, passable.length, 0, 0, 19, 19, passable);
-        test(2, passable.length, 19, 2, 1, 17, passable);
-        */
+        //passable.dat
+        passable = parseBoolean("lab19_Graphs/passable.dat");
+        test(passable.length, 0, 0, 59, 59, passable);
+        test(passable.length, 56, 1, 21, 57, passable);
 
-        //If file is passable.dat
-
-        test(1, passable.length, 0, 0, 59, 59, passable);
-        test(2, passable.length, 56, 1, 21, 57, passable);
 
     }
 
-    private static int[][] parseBoolean() throws IOException {
-        //Scanner input = new Scanner(new File("lab19_Graphs/Test.dat"));
-        Scanner input = new Scanner(new File("lab19_Graphs/passable.dat"));
+    private static int[][] parseBoolean(String filePath) throws IOException {
+        Scanner input = new Scanner(new File(filePath));
 
         int size = input.nextInt();
 
