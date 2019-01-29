@@ -1,11 +1,13 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class aStar {
     private static final int DIAGONAL_COST = 14;
     private static final int V_H_COST = 10;
     private static int tCase = 1;
+
+    private static Scanner input;
+
 
     static class Cell{
         int heuristicCost = 0; //Heuristic cost
@@ -238,30 +240,41 @@ public class aStar {
 
     public static void main(String[] args) throws Exception {
         //Test.dat
-        int[][] passable = parseBoolean("lab19_Graphs/Test.dat");
+        input = new Scanner(new File("lab19_Graphs/Test.dat"));
+        int[][] passable = parseBoolean();
         test(passable.length, 0, 0, 19, 19, passable);
         test(passable.length, 19, 2, 1, 17, passable);
 
         //passable.dat
-        passable = parseBoolean("lab19_Graphs/passable.dat");
+        input = new Scanner(new File("lab19_Graphs/passable.dat"));
+        passable = parseBoolean();
         test(passable.length, 0, 0, 59, 59, passable);
         test(passable.length, 56, 1, 21, 57, passable);
+
+        passable = parseBoolean();
+        test(passable.length, 0, 0, 119, 119, passable);
+        test(passable.length, 106, 3, 3, 111, passable);
 
 
     }
 
-    private static int[][] parseBoolean(String filePath) throws IOException {
-        Scanner input = new Scanner(new File(filePath));
-
+    private static int[][] parseBoolean() {
         int size = input.nextInt();
 
-        int[][] passable = new int[size][size];
-        for (int i = 0; i < size; i++) {
-            for (int x = 0; x < size; x++)
-                if (input.nextBoolean())
-                    passable[i][x] = 0;
-                else
-                    passable[i][x] = 1;
+        int[][] passable = new int[0][0];
+        try {
+            passable = new int[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int x = 0; x < size; x++) {
+                    boolean next = input.nextBoolean();
+                    if (next)
+                        passable[i][x] = 0;
+                    else
+                        passable[i][x] = 1;
+                }
+            }
+        } catch (Exception e) {
+            System.out.print("");
         }
 
         return passable;
