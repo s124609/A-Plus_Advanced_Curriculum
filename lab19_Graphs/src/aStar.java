@@ -240,10 +240,14 @@ public class aStar {
 
     public static void main(String[] args) throws Exception {
         //Test.dat
-        input = new Scanner(new File("lab19_Graphs/Test.dat"));
+        input = new Scanner(new File("lab19_Graphs/test.dat"));
         int[][] passable = parseBoolean();
         test(passable.length, 0, 0, 19, 19, passable);
         test(passable.length, 19, 2, 1, 17, passable);
+
+        passable = parseBoolean();
+        test(passable.length, 0, 0, 39, 39, passable);
+        test(passable.length, 36, 0, 1, 37, passable);
 
         //passable.dat
         input = new Scanner(new File("lab19_Graphs/passable.dat"));
